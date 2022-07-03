@@ -9,20 +9,23 @@ import { GlobalStyle } from './styles/global';
 ReactModal.setAppElement('#root');
 
 export function App() {
-  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
+    useState(false);
 
   function handleOpenNewTransactionModal() {
     setIsNewTransactionModalOpen(true);
   }
-  
+
   function handleCloseNewTransactionModal() {
     setIsNewTransactionModalOpen(false);
   }
 
+  const GlobalStyleProxy: any = GlobalStyle;
+
   return (
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
-      
+
       <Dashboard />
 
       <NewTransactionModal
@@ -30,7 +33,7 @@ export function App() {
         onRequestClose={handleCloseNewTransactionModal}
       />
 
-      <GlobalStyle />
+      <GlobalStyleProxy />
     </>
   );
 }
